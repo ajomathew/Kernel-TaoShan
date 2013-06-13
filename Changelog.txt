@@ -1,0 +1,32 @@
+                                                  Changelog for Vengeance Kernel
+                                               
+Devices Supported ( 3.4 Linux kernel ):-
+
+* Xperia L ( TAOSHAN )
+
+
+>----Version 1.21---- 
+* First Release
+* Based on official 15.0.A.1.31 sources
+* Compiled using Google 4.7 Toolchain
+* Min freq 384 MHz - Max 1.2 GHz
+* Autoroot with latest su binary
+* Init.d support
+* Neon Optimizations
+* CAF backport fixes
+* ARM_THUMBEE Support
+* Removed some debugging s**ts
+* Swap Support
+* ext 2/3/4 support
+* Salvaged 7.5 MB RAM
+* Cleancache
+* SLUB Memory Allocator
+* LZO compression
+* CIFS, NTFS, FUSE and TUN as external modules
+* Frandom Entropy generator
+* /rootfs and /system mounted as rw
+* Persistent adb
+* Added Interactive and conservative governor
+* Removed userspace governor
+* Added sio IO sched
+* Optmize deadline
