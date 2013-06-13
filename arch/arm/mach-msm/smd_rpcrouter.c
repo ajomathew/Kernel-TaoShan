@@ -1121,7 +1121,6 @@ static void do_read_data(struct work_struct *work)
 				       hdr.dst_cid,
 				       hdr.src_cid);
 	}
-#endif
 
 	spin_lock_irqsave(&local_endpoints_lock, flags);
 	ept = rpcrouter_lookup_local_endpoint(hdr.dst_cid);

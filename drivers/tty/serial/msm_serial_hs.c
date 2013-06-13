@@ -177,7 +177,6 @@ struct msm_hs_port {
 #define RETRY_TIMEOUT 5
 #define UARTDM_NR 256
 
-static struct dentry *debug_base;
 static struct msm_hs_port q_uart_port[UARTDM_NR];
 static struct platform_driver msm_serial_hs_platform_driver;
 static struct uart_driver msm_hs_driver;
@@ -364,27 +363,6 @@ static int msm_serial_loopback_enable_get(void *data, u64 *val)
 DEFINE_SIMPLE_ATTRIBUTE(loopback_enable_fops, msm_serial_loopback_enable_get,
 			msm_serial_loopback_enable_set, "%llu\n");
 
-/*
- * msm_serial_hs debugfs node: <debugfs_root>/msm_serial_hs/loopback.<id>
- * writing 1 turns on internal loopback mode in HW. Useful for automation
- * test scripts.
- * writing 0 disables the internal loopback mode. Default is disabled.
- */
-static void __devinit msm_serial_debugfs_init(struct msm_hs_port *msm_uport,
-					   int id)
-{
-	char node_name[15];
-	snprintf(node_name, sizeof(node_name), "loopback.%d", id);
-	msm_uport->loopback_dir = debugfs_create_file(node_name,
-						S_IRUGO | S_IWUSR,
-						debug_base,
-						msm_uport,
-						&loopback_enable_fops);
-
-	if (IS_ERR_OR_NULL(msm_uport->loopback_dir))
-		pr_err("%s(): Cannot create loopback.%d debug entry",
-							__func__, id);
-}
 
 static int __devexit msm_hs_remove(struct platform_device *pdev)
 {
@@ -2025,8 +2003,6 @@ static int __devinit msm_hs_probe(struct platform_device *pdev)
 	if (unlikely(ret))
 		return ret;
 
-	msm_serial_debugfs_init(msm_uport, pdev->id);
-
 	uport->line = pdev->id;
 	if (pdata != NULL && pdata->userid && pdata->userid <= UARTDM_NR)
 		uport->line = pdata->userid;
@@ -2047,14 +2023,10 @@ static int __init msm_serial_hs_init(void)
 		printk(KERN_ERR "%s failed to load\n", __FUNCTION__);
 		return ret;
 	}
-	debug_base = debugfs_create_dir("msm_serial_hs", NULL);
-	if (IS_ERR_OR_NULL(debug_base))
-		pr_info("msm_serial_hs: Cannot create debugfs dir\n");
 
 	ret = platform_driver_register(&msm_serial_hs_platform_driver);
 	if (ret) {
 		printk(KERN_ERR "%s failed to load\n", __FUNCTION__);
-		debugfs_remove_recursive(debug_base);
 		uart_unregister_driver(&msm_hs_driver);
 		return ret;
 	}
@@ -2148,7 +2120,6 @@ static void msm_hs_shutdown(struct uart_port *uport)
 static void __exit msm_serial_hs_exit(void)
 {
 	printk(KERN_INFO "msm_serial_hs module removed\n");
-	debugfs_remove_recursive(debug_base);
 	platform_driver_unregister(&msm_serial_hs_platform_driver);
 	uart_unregister_driver(&msm_hs_driver);
 }

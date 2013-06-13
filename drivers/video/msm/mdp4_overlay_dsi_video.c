@@ -985,10 +985,10 @@ static void mdp4_dsi_video_do_blt(struct msm_fb_data_type *mfd, int enable)
 	vctrl = &vsync_ctrl_db[cndx];
 	pipe = vctrl->base_pipe;
 
-	mode = (dbg_force_ov0_blt & 0x0f) ?
+	/*mode = (dbg_force_ov0_blt & 0x0f) ?
 		(dbg_force_ov0_blt & 0x0f) : vctrl->blt_mode;
 	ctrl = (dbg_force_ov0_blt >> 4) ?
-		(dbg_force_ov0_blt >> 4) : vctrl->blt_ctrl;
+		(dbg_force_ov0_blt >> 4) : vctrl->blt_ctrl;*/
 
 	pr_debug("%s: mode=%d, enable=%d ov_blt_addr=%x\n",
 		 __func__, mode, enable, (int)pipe->ov_blt_addr);

@@ -111,6 +111,7 @@ DEFINE_SIMPLE_ATTRIBUTE(debug_addr_fops, msm_cpr_debug_addr_get,
 
 int msm_cpr_debug_init(void *data)
 {
+#ifdef CONFIG_DEBUG_FS
 	char *name = "cpr-debug";
 	struct msm_cpr_debug_device *debugdev;
 	struct dentry *dir;
@@ -149,7 +150,7 @@ int msm_cpr_debug_init(void *data)
 	debugdev->addr_offset = -1;
 	debugdev->dir = dir;
 	mutex_init(&debugdev->debug_mutex);
-
+#endif
 	return 0;
 
 file_error:
