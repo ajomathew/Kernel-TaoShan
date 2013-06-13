@@ -559,9 +559,9 @@ static void msm_pil_debugfs_remove(struct pil_device *pil)
 	debugfs_remove(pil->dentry);
 }
 #else
-static int __init msm_pil_debugfs_init(void) { return; };
-static void __exit msm_pil_debugfs_exit(void) { return; };
-static int msm_pil_debugfs_add(struct pil_device *pil) { return; }
+static int __init msm_pil_debugfs_init(void) { return 0; };
+static void __exit msm_pil_debugfs_exit(void) { return 0; };
+static int msm_pil_debugfs_add(struct pil_device *pil) { return 0; }
 static void msm_pil_debugfs_remove(struct pil_device *pil) { }
 #endif
 

@@ -16,7 +16,6 @@
  */
 
 #define DEBUG
-#undef DEBUG
 
 #include <linux/delay.h>
 #include <linux/module.h>

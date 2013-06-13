@@ -923,7 +923,6 @@ static long audio_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 	int rc = 0;
 
 	MM_DBG("cmd = %d\n", cmd);
-	printk("lpa: %d \n", cmd);
 
 	if (cmd == AUDIO_GET_STATS) {
 		struct msm_audio_stats stats;
@@ -935,16 +934,13 @@ static long audio_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 	}
 	if (cmd == AUDIO_SET_VOLUME) {
 		unsigned long flags;
-		printk("lpa: %lu \n", arg);
 		spin_lock_irqsave(&audio->dsp_lock, flags);
 
-		audio->volume = MSM_VOLUME_STEP * arg * 2;
+		audio->volume = MSM_VOLUME_STEP * arg;
 		audio->volume /= MSM_VOLUME_FACTOR;
-		printk("lpa setting: %lu \n",  audio->volume);
 
 		if (audio->volume > MSM_MAX_VOLUME)
 			audio->volume = MSM_MAX_VOLUME;
-		printk("lpa setting capped: %lu \n",  audio->volume);
 
 		if (audio->running)
 			audpp_set_volume_and_pan(audio->dec_id,

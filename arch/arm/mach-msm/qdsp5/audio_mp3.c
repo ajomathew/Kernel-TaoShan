@@ -483,7 +483,7 @@ static void audplay_dsp_event(void *data, unsigned id, size_t len,
 		break;
 
 	default:
-		//MM_ERR("unexpected message from decoder \n");
+		MM_ERR("unexpected message from decoder \n");
 		break;
 	}
 }

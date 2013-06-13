@@ -179,7 +179,7 @@ static void process_audmgr_callback(struct audmgr_global *amg,
 		MM_ERR("VOLUME_CHANGE?\n");
 		break;
 	case RPC_AUDMGR_STATUS_DISABLED:
-		//MM_ERR("DISABLED\n");
+		MM_ERR("DISABLED\n");
 		am = (struct audmgr *) be32_to_cpu(
 			((struct rpc_audmgr_cb_ready *)args)->client_data);
 		if (!am)
