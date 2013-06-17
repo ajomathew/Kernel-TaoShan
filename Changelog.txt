@@ -19,6 +19,7 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Swap Support
 * ext 2/3/4 support
 * Salvaged 7.5 MB RAM
+* Disable CCI_KLOG (Thanks to @fxp)
 * Cleancache
 * SLUB Memory Allocator
 * LZO compression
