@@ -31,3 +31,14 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Removed userspace governor
 * Added sio IO sched
 * Optmize deadline
+
+>----Version 1.22---- 
+* Disable MSM DCVS
+* msm: mdp: Fix reserved field usage (Thanks @Naseer Ahmed)
+* add wheatley governor (thanks to @Ezekeel)
+* Min freq 384 MHz - Max 1404000 MHz
+* GPU MAX Core clk set to 450 MHz
+* ported USB force FastCharge from apq8064 (Thanks @DooMLoRD)
+* kernel level sound control (Thanks @faux123)
+* Hardcode cmdline into kernel
+* Switch to GZIP Compression for both kernel and ramdisk
