@@ -42,3 +42,14 @@ Devices Supported ( 3.4 Linux kernel ):-
 * kernel level sound control (Thanks @faux123)
 * Hardcode cmdline into kernel
 * Switch to GZIP Compression for both kernel and ramdisk
+
+>----Version 1.23---- 
+* Default Boot Frequency set to 1188000 MHz-384 MHz
+* Used glibc lib/string and lib/memcopy for faster memory mapping
+* Tweak VM READAHEAD to 1024
+* usb: force 500Ma charging current on unknown chargers (Thanks to @fxp)
+* Use dynamic file sync (Thanks to @faux123)
+* Remove ARM_THUMBEE Support
+* Ramdisk Optimized by removing unwanted services at boot
+* Some fixes to ps3 controller support
+* Some fixes to usb config at boot
