@@ -53,3 +53,4 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Ramdisk Optimized by removing unwanted services at boot
 * Some fixes to ps3 controller support
 * Some fixes to usb config at boot
+* Amber LED at boot + Short Vibration
