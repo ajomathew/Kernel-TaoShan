@@ -54,3 +54,11 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Some fixes to ps3 controller support
 * Some fixes to usb config at boot
 * Amber LED at boot + Short Vibration
+
+>----Version 1.25---- 
+* Integrated CWM+TWRP into kernel
+* Vol Buttons - CWM & Power Button - TWRP ( when amber LED glows )
+* Remove junks from ramdisk
+* Remove autoroot
+* All ramdisk.cpio compressed in lzma
+* Some various under the hood fixes and optimizations
