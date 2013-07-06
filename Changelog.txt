@@ -62,3 +62,9 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Remove autoroot
 * All ramdisk.cpio compressed in lzma
 * Some various under the hood fixes and optimizations
+
+>----Version 1.26---- 
+* Updated CWM to 6.3.3.0
+* Some fixes to CWM
+* Single recovery and Dual recovery versions
+* Ramdisk optimizations
