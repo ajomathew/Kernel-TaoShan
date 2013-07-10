@@ -34,6 +34,6 @@ Method 3: Via init.d script
 * Go to system/etc/init.d
 * edit the 20vdd script
 Change vdd variable to increase/decrease voltages at boot
-for example : vdd -30000 ( to decrease all voltages by 30000 )
+for example : vdd=-30000 ( to decrease all voltages by 30000 )
 You can check log at /data/local/tmp/vdd.txt 
 
