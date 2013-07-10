@@ -76,6 +76,6 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Added 192 MHz to acpuclock
 * Default IOSCHED set to deadline
 * Removed Faux Sound control
+* Change kernel version string
+* Remove dma_test and mmc_test modules
 * Overall improved and optimized
-*
-* 
