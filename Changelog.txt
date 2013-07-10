@@ -68,3 +68,14 @@ Devices Supported ( 3.4 Linux kernel ):-
 * Some fixes to CWM
 * Single recovery and Dual recovery versions
 * Ramdisk optimizations
+
+>----Version 1.28---- 
+* Linaro Compiled
+* O3 + cortex A15 optimizations ( Thanks to franciscofranco )
+* Added UnderVolting Support
+* Added 192 MHz to acpuclock
+* Default IOSCHED set to deadline
+* Removed Faux Sound control
+* Overall improved and optimized
+*
+* 
