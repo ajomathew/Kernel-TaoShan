@@ -16,7 +16,7 @@
 
 #ifndef __ARCH_ARM_MACH_MSM_CLOCK_H
 #define __ARCH_ARM_MACH_MSM_CLOCK_H
-
+#undef CONFIG_DEBUG_FS
 #include <linux/types.h>
 #include <linux/list.h>
 #include <linux/clkdev.h>
@@ -180,10 +180,10 @@ int unvote_vdd_level(struct clk_vdd_class *vdd_class, int level);
 int clock_debug_init(struct clock_init_data *data);
 int clock_debug_add(struct clk *clock);
 void clock_debug_print_enabled(void);
-#else
-static inline int clock_debug_init(struct clk_init_data *data) { return 0; }
-static inline int clock_debug_add(struct clk *clock) { return 0; }
-static inline void clock_debug_print_enabled(void) { return; }
+/*#else
+static inline int clock_debug_init(struct clk_init_data *data) { return; }
+static inline int clock_debug_add(struct clk *clock) { return; }
+static inline void clock_debug_print_enabled(void) { return; }*/
 #endif
 
 extern struct clk dummy_clk;
